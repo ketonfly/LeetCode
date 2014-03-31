@@ -12,10 +12,10 @@ public class LongestValidParentheses {
 	      
 	     for(int i = 0;i<s.length();i++) {
 	    	 char ch=s.charAt(i); 
-	    	 if(ch=='(')
+	    	 if(ch=='('){
 	    		 stack.push(i);
 	    	 }
-	     	else if(stack.isempty()){
+	     	else if(stack.isEmpty()){
 	     		start=i;
 	     		stack.pop();
 	     		countMax=countMax>(i-start)?countMax:(i-start);
@@ -25,8 +25,7 @@ public class LongestValidParentheses {
 	                     countMax = countMax>(i-stack.get(stack.size()-1))?countMax:(i-stack.get(stack.size()-1));
 	                 }
 	             }
-	         }
-	     }
+	     
 	     return countMax;
 	 }
 	
