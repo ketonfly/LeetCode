@@ -15,8 +15,28 @@ class ListNode {
 
 public class RemoveNthNodeFromEndofList {
 	public ListNode removeNthFromEnd(ListNode head, int n) {
+		ListNode beforeNode=head,afterNode=head;
 		
-		Map<Integer, ListNode> RecordMap = new HashMap<Integer, ListNode>();
+		for(int i = 0 ;i<n;i++){
+			afterNode = afterNode.next;
+		}
+		if(afterNode==null){
+			head = head.next;
+			beforeNode = null;
+			return head;
+		}
+		while(afterNode.next!=null){
+			beforeNode = beforeNode.next;
+			afterNode = afterNode.next;
+		}
+		ListNode tmp = beforeNode.next.next;
+		
+		beforeNode.next = tmp;
+		
+		return head;
+		
+		
+		/*Map<Integer, ListNode> RecordMap = new HashMap<Integer, ListNode>();
 
 		int i = 1;
 		int location;
@@ -31,7 +51,7 @@ public class RemoveNthNodeFromEndofList {
 			i++;
 		}
 		RecordMap.put(i, p);
-		System.out.println(RecordMap.size());
+		
 		location = RecordMap.size() - n + 1;
 		if (location == 1) {
 			p = head.next;
@@ -47,7 +67,15 @@ public class RemoveNthNodeFromEndofList {
 		afterNode = RecordMap.get(location + 1);
 		beforeNode.next = afterNode;
 
-		return head;
+		return head;*/
+
+		/*
+		 * if (head == null) return null; ListNode p = head; ListNode q = head;
+		 * for (int i = 0; i < n; i++) { q = q.next; } if (q == null) { head =
+		 * head.next; p = null; return head; } while (q.next != null) { p =
+		 * p.next; q = q.next; } ListNode tmp = p.next.next; p.next = tmp;
+		 * return head;
+		 */
 
 	}
 
@@ -70,10 +98,12 @@ public class RemoveNthNodeFromEndofList {
 		ListNode head = tt.createList();
 
 		head = tt.removeNthFromEnd(head, 1);
+
 		/*while (head.next != null) {
 			System.out.println(head.val);
 			head = head.next;
-		}*/
-		System.out.println(head);
+		}
+
+		System.out.println(head.val);*/
 	}
 }
