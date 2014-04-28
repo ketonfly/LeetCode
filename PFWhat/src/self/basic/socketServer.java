@@ -7,13 +7,13 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server {
+public class socketServer {
 	private ServerSocket ss;
 	private Socket socket;
 	private BufferedReader in;
 	private PrintWriter out;
 	
-	public Server(){
+	public socketServer(){
 		try {
 			ss = new ServerSocket(10000);
 			while(true){
@@ -45,6 +45,6 @@ public class Server {
 		}
 	}
 	public static void main(String []agrs){
-		new Server();
+		new socketServer();
 	}
 }

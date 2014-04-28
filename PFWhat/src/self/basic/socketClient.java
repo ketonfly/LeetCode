@@ -7,11 +7,11 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class Client {
+public class socketClient {
 	Socket socket;
 	BufferedReader in;
 	PrintWriter out;
-	public Client(){
+	public socketClient(){
 		System.out.println("try to connect to 127.0.0.1:10000");
 		try {
 			socket = new Socket("127.0.0.1",10000);
@@ -42,6 +42,6 @@ public class Client {
 		
 	}
 	public static void main(String []args){
-		new Client();
+		new socketClient();
 	}
 }
